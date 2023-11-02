@@ -175,4 +175,6 @@ $ docker run -p 5000:5000 cfpsubmissions/ieeeeurosp24-didcomm ./get-all-stats-pr
 
 This takes some more time to load, but you will get some freshly computed stats
 using the code in this repo. Note that this will require time proportional to 
-the resources you allocate to your running Docker container.
+the resources you allocate to your running Docker container. In any case, please be
+aware that it will take time -- especially, the memory profiling part may take a
+few hours to run.
