@@ -5,7 +5,11 @@ Analysis and Improvements of DIDComm Messaging" to run some benchmarks.
 
 The code outputs the CPU time needed for encryption and decryption in
 different modes of operation in DIDComm, as well as the sizes of the
-resutling DIDComm messages.
+resutling DIDComm messages, and the maximum resident memory size for
+encryption.
+
+All the programs build on Sicpa's didcommm-python implementation, the
+reference Python implementation for DIDComm.
 
 The analysed modes include the following *existing modes*:
 - `anon`: DIDComm's basic anoncrypt mode. Builds a sender-anonymous, 
@@ -43,7 +47,7 @@ in Ubuntu. Probably also in other UNIX-based systems.
 # Running the programs, individually
 
 Once you have the environment ready you can run the following commands to get
-the data/plots:
+the data/plots (with the exception of the `*-mem.py` programs, see next):
 
 ```
 $ python3 [program] <msg> <num. recipients> <iters>
@@ -95,6 +99,17 @@ gnuplot print-stats-enc-cpu.gp  # This expects a file named "results.anon"
 You will get a PNG file named "results-enc.png" with a graphical depiction of 
 the data in "results.anon".
 
+### Memory profiling
+
+The Python programs used to profile memory usage have a `-mem` suffix. They are run
+as the ones just described, but no `<iters>` parameter is specified. This is because
+memory profiling in Python is done via the `resource` module, which returns the _maximum
+memory used per program execution_. Thus, if we run the encryption program within the same 
+run thousands of times, we'll get the maximum of all those thousands of times. Instead, we
+to produce our benchmarks, we leverage an external bash script that runs the same program
+thousands of times, and then computes the average and standard deviation of all the maximum
+amount of memory used per program execution.
+
 ## I'm a bit lazy, is there some faster way to get the data?
 
 Sure. If you run:
@@ -108,6 +123,15 @@ you get the data corresponding to CPU enc time, CPU dec time, and message size
 results over `<niters>` iterations, for the given mode, in the file you specified.
 Then you can run the Gnuplot scripts over those (but beware that the Gnuplot
 scripts expect concrete file names!)
+
+Since the `*-mem` programs follow a slightly different approach, they have their own
+script:
+
+```
+$ ./get-mem-stats.sh <mode> <niters> <output file>
+```
+
+Other than that, the parameters are as above.
 
 ## Just give me the ~~data~~ plots!
 
@@ -123,6 +147,12 @@ and will plot the results in three .png files:
 - `results-enc.png` for CPU encryption times.
 - `results-dec.png` for CPU decryption times.
 - `results-size.png` for DIDComm message sizes.
+
+Again, for the memory profiling, run:
+
+```
+$ ./get-all-mem-stats-and-print.sh
+```
 
 ## Nah, this is too much, I don't even want to install Python
 
