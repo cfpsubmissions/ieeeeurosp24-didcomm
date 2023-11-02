@@ -10,8 +10,10 @@ RUN pip install -r requirements.txt
 RUN chmod +x get-stats.sh
 RUN chmod +x get-all-stats-and-print.sh
 RUN chmod +x get-all-stats-print-and-post.sh
-RUN bash get-stats.sh anon 1000 results.anon; bash get-stats.sh auth 1000 results.auth; bash get-stats.sh naive-a-auth 1000 results.naive-a-auth; bash get-stats.sh merge-a-auth 1000 results.merge-a-auth; bash get-stats.sh ra-anon 1000 results.ra-anon; bash get-stats.sh ra-a-auth 1000 results.ra-a-auth; bash get-mem-stats.sh anon 1000 results-mem.anon; bash get-mem-stats.sh auth 1000 results-mem.auth; bash get-mem-stats.sh naive-a-auth 1000 results-mem.naive-a-auth; bash get-mem-stats.sh merge-a-auth 1000 results-mem.merge-a-auth; bash get-mem-stats.sh ra-anon 1000 results-mem.ra-anon; bash get-mem-stats.sh ra-a-auth 1000 results-mem.ra-a-auth
-RUN gnuplot print-stats-enc-cpu.gp; gnuplot print-stats-dec-cpu.gp; gnuplot print-stats-size.gp; gnuplot print-stats-mem.gp
+RUN bash get-stats.sh anon 1000 results.anon; bash get-stats.sh auth 1000 results.auth; bash get-stats.sh naive-a-auth 1000 results.naive-a-auth; bash get-stats.sh merge-a-auth 1000 results.merge-a-auth; bash get-stats.sh ra-anon 1000 results.ra-anon; bash get-stats.sh ra-a-auth 1000 results.ra-a-auth
+RUN bash get-mem-stats.sh anon 10 results-mem.anon; bash get-mem-stats.sh auth 10 results-mem.auth; bash get-mem-stats.sh naive-a-auth 10 results-mem.naive-a-auth; bash get-mem-stats.sh merge-a-auth 10 results-mem.merge-a-auth; bash get-mem-stats.sh ra-anon 10 results-mem.ra-anon; bash get-mem-stats.sh ra-a-auth 10 results-mem.ra-a-auth
+RUN gnuplot print-stats-enc-cpu.gp; gnuplot print-stats-dec-cpu.gp; gnuplot print-stats-size.gp
+RUN gnuplot print-stats-mem.gp
 RUN mkdir -p flask-app/static
 RUN cp results-enc.png flask-app/static; cp results-dec.png flask-app/static; cp results-size.png flask-app/static; cp results-mem.png flask-app/static
 ENV FLASK_APP flask-app/application.py
