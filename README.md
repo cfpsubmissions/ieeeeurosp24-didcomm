@@ -154,6 +154,8 @@ Again, for the memory profiling, run:
 $ ./get-all-mem-stats-and-print.sh
 ```
 
+This will produce a `results-mem.png` file, with the graphs for memory usage.
+
 ## Nah, this is too much, I don't even want to install Python
 
 Do not despair! If you have a local Docker installation, just run:
