@@ -1,0 +1,9 @@
+# Results for ra-a-auth mode
+# Results averaged over 10 iterations
+# nRecipients	Max_mem_avg	Max_mem_std
+1	41930,8	79,2979
+2	41933,6	119,281
+3	41923,6	90,9057
+4	41925,6	115,505
+5	41965,6	114,922
+6	41893,6	95,0991

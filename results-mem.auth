@@ -1,0 +1,9 @@
+# Results for auth mode
+# Results averaged over 10 iterations
+# nRecipients	Max_mem_avg	Max_mem_std
+1	41260,4	67,6804
+2	41296,8	111,065
+3	41250,4	89,9813
+4	41255,2	91,3858
+5	41272,4	109,449
+6	41260,8	79,956

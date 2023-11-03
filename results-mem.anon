@@ -1,0 +1,9 @@
+# Results for anon mode
+# Results averaged over 10 iterations
+# nRecipients	Max_mem_avg	Max_mem_std
+1	41114,4	76,3403
+2	41120,4	60,4635
+3	41120	109,793
+4	41132,8	102,071
+5	41252,4	79,5477
+6	41306	119,402

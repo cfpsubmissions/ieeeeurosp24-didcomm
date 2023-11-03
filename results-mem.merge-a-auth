@@ -1,0 +1,9 @@
+# Results for merge-a-auth mode
+# Results averaged over 10 iterations
+# nRecipients	Max_mem_avg	Max_mem_std
+1	41812,8	123,899
+2	41771,6	99,4939
+3	41796,3	79,2963
+4	41783,6	148,921
+5	41734	123,654
+6	41803,2	83,019

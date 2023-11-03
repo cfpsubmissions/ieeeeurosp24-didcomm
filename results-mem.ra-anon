@@ -1,0 +1,9 @@
+# Results for ra-anon mode
+# Results averaged over 10 iterations
+# nRecipients	Max_mem_avg	Max_mem_std
+1	41644,4	73,331
+2	41575,6	111,39
+3	41554	203,633
+4	41605,2	118,092
+5	41798	87,2193
+6	41732,8	144,873

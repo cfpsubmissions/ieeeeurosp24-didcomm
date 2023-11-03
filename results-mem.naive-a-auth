@@ -1,0 +1,9 @@
+# Results for naive-a-auth mode
+# Results averaged over 10 iterations
+# nRecipients	Max_mem_avg	Max_mem_std
+1	41354	150,628
+2	41376,8	135,703
+3	41377,2	108,665
+4	41317,2	65,7766
+5	41356,8	84,8302
+6	41382,8	104,446
